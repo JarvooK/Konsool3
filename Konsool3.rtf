@@ -1,0 +1,47 @@
+{\rtf1\ansi\ansicpg1250\cocoartf2576
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 using System;\
+\
+namespace RefVsOut\
+\{\
+    class Program\
+    \{\
+        static void Main(string[] args)\
+        \{\
+            int first = 1;\
+            int second = 2;\
+\
+            Method1(out first, out second);\
+            Method2(first, ref second);\
+            Method3(ref first, second);\
+\
+            Console.WriteLine($"first: \{first\}, second: \{second\}");\
+            Console.ReadLine();\
+\
+        \}\
+\
+        static void Method1(out int a, out int b)\
+        \{\
+            a = 2;\
+            b = 1;\
+        \}\
+\
+        static void Method2(int a, ref int b)\
+        \{\
+            a *= 5;\
+            b *= a;\
+        \}\
+\
+        static void Method3(ref int a, int b)\
+        \{\
+            a *= 5;\
+            b *= b;\
+        \}\
+    \}\
+\}\
+}
